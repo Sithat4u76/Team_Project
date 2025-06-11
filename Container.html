@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/MyStyle.css">
+    <title>Home</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="sideBar">
+            <button class="close-btn" onclick="MenuToggle()">✖</button>
+            <div class="profile" >
+                <div class="img" id="preview1">
+                </div>
+                <h3 class="profileName">Sithat4U76</h3>
+            </div>
+            <input type="file" id="fileInput" name="imageFile" accept="image/*" hidden/>
+            <label for="fileInput" class="custom-file-button">Upload File</label>
+            <hr class="line">
+            <ul>
+                
+                <li><a href="dashborad.html" onclick="loadPage(event, 'dashborad.html')">Dashborad</a></li>
+                <li><a href="#">Catagory</a></li>
+                <li><a href="#">Product</a></li>
+                <li><a href="#">Customer</a></li>
+                <li><a href="#">Suppliers</a></li>
+                <li><a href="#">Sales</a></li>
+                <li><a href="#">Sales Report</a></li>
+                <li><a href="#">User</a></li>
+                <li><a href="#">Log Out</a></li>
+            </ul>
+        </div>
+        <div class="content" id="content">
+            <header>
+                <div class="menu" onclick="MenuToggle()""><img src="/icon/bullet-point.png" alt=""></div>
+                <h1>POS Mangement System</h1>
+                <div class="right_header">
+                    <input type="text" id="myFormattedDate" readonly>
+                    <input type="time" id="myTime">
+                    <div class="icon-chat"><img src="/icon/chat.png" alt=""></div>
+                    <div class="profileName">Sithat <br> Admin</div>
+                    <div class="img" id="preview2"></div>
+                </div>
+            </header>
+            <hr>
+
+            <!-- remove my code and-->
+            <!-- write content here --> 
+
+
+            <div class="profile_content">
+                <h1>My Profile</h1>
+                <div class="profile_and_details">
+                    <div class="profile_infor">
+                    <h2>Profile</h2>
+                    <div class="my_profile">
+                        <div class="img" id="preview3"></div>
+                        <p>id: <span>199991</span></p>
+                        <h4 class="my_name">Sithat 4U76</h4>
+                        <p class="my_role">Administator</p>
+                    </div>
+                    <ul>
+                        <li><a href="#">
+                            <img src="/icon/iphone.png" width="20px">
+                            <p>096 406 96 88</p>
+                        </a></li>
+                        <li><a href="#">
+                            <img src="/icon/message.png" width="25px">
+                            <p>sithat4u76@gmail.com</p>
+                        </a></li>
+                        <li><a href="#">
+                            <img src="/icon/3d-calendar.png" width="20px">
+                            <p>01-08-2005</p>
+                        </a></li>
+                    </ul>
+                </div>
+                <div class="profile_details">
+                    <div class="label">
+                        <h2>Details</h2>
+                        <div class="label_working">
+                            <h4>Working</h4>
+                            <p>Working day:</p>
+                            <p>Working time:</p>
+                            <p>Salary: </p>
+                            <p>Stature: </p>
+                        </div>
+                        <div class="label_address">
+                            <h4>Address</h4>
+                            <p>Village: </p>
+                            <p>Commune: </p>
+                            <p>District: </p>
+                            <p>Province: </p>
+                        </div>
+                    </div>
+                    <div class="txt">
+                        <div class="txt_working">
+                            <p>Monday-Friday</p>
+                            <p>7:00-4:00</p>
+                            <p>$300</p>
+                            <p>Not Married</p>
+                        </div>
+                        <div class="space"></div>
+                        <div class="txt_address">
+                            <p>Beong Pring</p>
+                            <p>Beong Pring</p>
+                            <p>Battambang</p>
+                            <p>Battambang</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                </div>
+
+                <div class="login_details">
+                    <div class="label">
+                        <h2>Aurhentication Details</h2>
+                        <p>User Name: </p>
+                        <p>Last Login: </p>
+                        <p>Registered: </p>
+                    </div>
+                    <div class="txt">
+                        <p>Sithat</p>
+                        <p>Today</p>
+                        <p>06-01-2025</p>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <script src="/MyScript.js"></script>
+
+</body>
+</html>
