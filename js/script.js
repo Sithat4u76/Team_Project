@@ -13,40 +13,9 @@ else{
 });
 
 function MenuToggle() {
-let menu = document.querySelector(".sideBar");
-menu.classList.toggle("show");
+    let menu = document.querySelector(".sideBar");
+    menu.classList.toggle("show");
 }
-    
-let imageUploader = document.getElementById('fileInput');
-imageUploader.addEventListener('change', function (event) {
-    const file = event.target.files[0];
-
-    const preview1 = document.getElementById('preview');
-    const preview2 = document.getElementById('preview2');
-    const preview3 = document.getElementById('preview3');
-
-    if (file && file.type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            const imageUrl = `url('${e.target.result}')`;
-
-            [preview1, preview2, preview3].forEach(preview => {
-                preview.style.backgroundImage = imageUrl;
-                preview.style.backgroundSize = 'cover';
-                preview.style.backgroundPosition = 'center';
-                preview.style.display = 'block';
-            });
-        };
-        reader.readAsDataURL(file);
-    } else {
-        [preview1, preview2, preview3].forEach(preview => {
-            preview.style.backgroundImage = '';
-        });
-        alert("Please select a valid image file.");
-    }
-});
-
-
 
 
 const today = new Date(2024, 5, 10); // Month is 0-based: 5 = June
@@ -68,4 +37,43 @@ function loadPage(event, page) {
         document.getElementById("content").innerHTML = data;
         window.history.pushState({}, "", page); // Update URL
     });
+}
+ // Show image preview BEFORE upload
+function uploadImage() {
+    const fileInput = document.getElementById("imageInput");
+    const file = fileInput.files[0];
+
+    if (!file) {
+    alert("Please select an image first.");
+    return;
+    }
+
+    const formData = new FormData();
+    formData.append("image", file); // This name must match your API field
+
+    fetch("https://script.google.com/macros/s/AKfycbzqYCYRSTv9Rj5jlC9n_5OoMYp8nVpHDGP_fhSmplO28ztJwPsFfSAXHYZ1vwYjrrYW/exec", {
+    method: "POST",
+    body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+    console.log("Upload success:", data);
+    alert("Image uploaded successfully!");
+
+    // Optional: update preview with uploaded URL
+    document.getElementById("preview1").src = data.imageUrl;
+    document.getElementById("preview2").src = data.imageUrl;
+    })
+    .catch(err => {
+    console.error("Upload error:", err);
+    alert("Image upload failed!");
+    });
+}
+
+
+// Format date helper
+function formatDate(input) {
+  if (!input) return 'N/A';
+  const date = new Date(input);
+  return isNaN(date.getTime()) ? 'Invalid Date' : date.toLocaleDateString();
 }
